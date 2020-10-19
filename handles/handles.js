@@ -1,3 +1,7 @@
+/**
+ * @param {string} uri - the server api URI for the content
+ * @param {function} callback - function to run if a sucessfull HTTP request made
+ */
 function getRequest(uri, callback) {
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -13,6 +17,11 @@ function getRequest(uri, callback) {
     xhttp.send();
 }
 
+/**
+ * @param {string} uri - the server api URI for the content
+ * @param {Object} data - the js object to be served in the post body as a json
+ * @param {function} callback - function to run if a sucessfull HTTP request made
+ */
 function postRequest(uri, data, callback = null) {
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
