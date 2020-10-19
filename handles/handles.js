@@ -8,6 +8,8 @@ function getRequest(uri, callback) {
         }
     };
     xhttp.open("GET", uri, true);
+    xhttp.setRequestHeader("Accept", "application/json");
+    //TODO add cookie support
     xhttp.send();
 }
 
@@ -19,7 +21,10 @@ function postRequest(uri, data, callback = null) {
             callback(this.responseText);
         }
     };
+    stringifiedData = JSON.stringify(data);
     xhttp.open("POST", uri, true);
-    http.setRequestHeader("Content-type", "application/json");
-    xhttp.send(JSON.stringify(data));
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.setRequestHeader("Content-Length", stringifiedData.length);
+    //TODO add cookie support
+    xhttp.send(stringifiedData);
 }
